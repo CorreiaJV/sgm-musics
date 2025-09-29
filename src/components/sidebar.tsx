@@ -77,7 +77,7 @@ export default function SidebarDrawer() {
                             </HStack>
                             <HStack
                                 as={RouterLink}
-                                to="/suggestions"
+                                //to="/suggestions"
                                 onClick={onClose}
                                 spacing={3}
                                 _hover={{ color: "yellow.400" }}

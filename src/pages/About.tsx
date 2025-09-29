@@ -1,5 +1,6 @@
 // pages/About.tsx
-import { Box, Heading, Text, VStack, Divider, Link } from "@chakra-ui/react"
+import { Box, Heading, Text, VStack, Divider, Link, Flex } from "@chakra-ui/react"
+import SidebarDrawer from "../components/sidebar"
 
 export default function About() {
     return (
@@ -13,6 +14,30 @@ export default function About() {
             justifyContent="center"
             alignItems="center"
         >
+            <Flex
+                as="header"
+                align="center"
+                justify="center"
+                px={4}
+                h="60px"
+                bg="black"
+                borderBottom="1px solid"
+                borderColor="yellow.400"
+                position="fixed"
+                top={2}
+                left={0}
+                right={0}
+                zIndex={20}
+            >
+                <Box position="absolute" left={4}>
+                    <SidebarDrawer />
+                </Box>
+
+                <Heading as="h1" size="lg" color="white">
+                    SGM-<Text as="span" color="yellow.300">Musics</Text>
+                </Heading>
+            </Flex>
+
             <VStack
                 maxW="800px"
                 w="fit-content"
@@ -23,6 +48,7 @@ export default function About() {
                 bg="gray.900"
                 boxShadow="lg"
                 align="center"
+                mt="8vh"
             >
                 <Heading size="lg" color="yellow.300" textAlign="center">
                     Sobre o Projeto

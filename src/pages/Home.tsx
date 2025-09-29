@@ -11,9 +11,12 @@ import {
   useTheme,
   Image,
   Heading,
+  IconButton,
 } from "@chakra-ui/react"
+import { HamburgerIcon } from "@chakra-ui/icons"
 import woodstock from "../assets/woodstock.png"
 import { useNavigate } from "react-router-dom"
+import SidebarDrawer from "../components/sidebar"
 
 export default function Home() {
   const { musics, loading } = useMusics()
@@ -23,13 +26,7 @@ export default function Home() {
 
   if (loading) {
     return (
-      <Flex
-        align="center"
-        justify="center"
-        h="100vh"
-        w="100vw"
-        bg="black"
-      >
+      <Flex align="center" justify="center" h="100vh" w="100vw" bg="black">
         <Spinner size="xl" color="brand.500" />
       </Flex>
     )
@@ -64,39 +61,53 @@ export default function Home() {
   }
 
   return (
-    <Flex
-      align="center"
-      justify="center"
-      h="100vh"
-      w="100vw"
-      bg="black"
-    >
+    <Flex direction="column" minH="100vh" w="100vw" bg="black">
+      <Flex
+        as="header"
+        align="center"
+        justify="center"
+        px={4}
+        h="60px"
+        bg="black"
+        borderBottom="1px solid"
+        borderColor="yellow.400"
+        position="fixed"
+        top={2}
+        left={0}
+        right={0}
+        zIndex={20}
+      >
+        <Box position="absolute" left={4}>
+          <SidebarDrawer />
+        </Box>
+
+        <Heading as="h1" size="lg" color="white">
+          SGM-<Text as="span" color="yellow.300">Musics</Text>
+        </Heading>
+      </Flex>
+
       <Box
         maxW="600px"
         w="100%"
         px={4}
-        position="relative"
         textAlign="center"
-        transform="translateY(-120px)"
+        mx="auto"
+        mt="20vh"
       >
 
         <Image
           src={woodstock}
           alt="Woodstock"
           mx="auto"
-          mb={0}
+          mb={6}
           maxW="300px"
           w="70%"
           objectFit="contain"
         />
 
         <Heading as="h1" size="lg" mb={6} color="white">
-          Encontre sua{" "}
-          <Text as="span" color="yellow.300">
-            música
-          </Text>
+          Encontre sua <Text as="span" color="yellow.300">música</Text>
         </Heading>
-
 
         <Input
           placeholder="Buscar música..."
@@ -109,16 +120,10 @@ export default function Home() {
           borderColor="brand.500"
           focusBorderColor="brand.500"
           borderRadius="10"
-          cursor="default"
-          _focus={{ cursor: "default" }}
         />
 
         {query && (
           <Box
-            position="absolute"
-            top="100%"
-            left={3}
-            right={0}
             mt={2}
             border="1px solid"
             borderColor="brand.500"
@@ -128,7 +133,6 @@ export default function Home() {
             maxH="300px"
             overflowY="auto"
             zIndex={10}
-            width="95%"
           >
             <List>
               {filtered.length > 0 ? (
@@ -152,9 +156,7 @@ export default function Home() {
             </List>
           </Box>
         )}
-
       </Box>
-
     </Flex>
   )
 }
