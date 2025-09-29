@@ -11,9 +11,7 @@ import {
   useTheme,
   Image,
   Heading,
-  IconButton,
 } from "@chakra-ui/react"
-import { HamburgerIcon } from "@chakra-ui/icons"
 import woodstock from "../assets/woodstock.png"
 import { useNavigate } from "react-router-dom"
 import SidebarDrawer from "../components/sidebar"
