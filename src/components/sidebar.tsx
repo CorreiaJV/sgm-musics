@@ -12,7 +12,7 @@ import {
     Text,
     Box,
 } from "@chakra-ui/react"
-import { HamburgerIcon, StarIcon, InfoIcon, SearchIcon, ChatIcon } from "@chakra-ui/icons"
+import { HamburgerIcon, StarIcon, InfoIcon, SearchIcon } from "@chakra-ui/icons"
 import { Link as RouterLink } from "react-router-dom"
 
 export default function SidebarDrawer() {
