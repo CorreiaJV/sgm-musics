@@ -19,7 +19,6 @@ export default function MusicDetail() {
     const { id } = useParams()
     const location = useLocation()
     const music = location.state
-
     const [loadingImg, setLoadingImg] = useState(true)
     const { isOpen, onOpen, onClose } = useDisclosure()
 
@@ -33,8 +32,6 @@ export default function MusicDetail() {
         a.click()
         window.URL.revokeObjectURL(url)
     }
-
-
 
     return (
         <Flex
@@ -50,7 +47,6 @@ export default function MusicDetail() {
             <Heading size="md" color="yellow.300" textAlign="center">
                 {music?.title || `Música ${id}`}
             </Heading>
-
             <Box>
                 {loadingImg && (
                     <Flex
@@ -63,7 +59,6 @@ export default function MusicDetail() {
                         <Spinner size="xl" color="yellow.300" />
                     </Flex>
                 )}
-
                 <Image
                     src={music?.url}
                     alt={music?.title}
@@ -82,11 +77,7 @@ export default function MusicDetail() {
                     borderColor="yellow.500"
                 />
             </Box>
-
             <Heading size="sm" mt={3}>Clique na imagem, se não quiser baixar 😉</Heading>
-
-
-
             <Button
                 onClick={handleDownload}
                 variant="outline"
@@ -98,10 +89,13 @@ export default function MusicDetail() {
             >
                 Download
             </Button>
-
-            <Modal isOpen={isOpen} onClose={onClose} size="full">
+            <Modal
+                isOpen={isOpen}
+                onClose={onClose}
+                size="full"
+                blockScrollOnMount={false}
+            >
                 <ModalOverlay bg="blackAlpha.900" />
-
                 <ModalContent
                     bg="transparent"
                     boxShadow="none"
@@ -110,13 +104,24 @@ export default function MusicDetail() {
                     maxW="100vw"
                     maxH="100vh"
                     display="flex"
+                    sx={{
+                        // Permite zoom e interação com a imagem
+                        '& img': {
+                            touchAction: 'auto',
+                            userSelect: 'auto',
+                        }
+                    }}
                 >
                     <ModalCloseButton color="white" size="lg" zIndex={10} />
-
                     <Flex
                         justify="center"
                         w="100vw"
                         h="100vh"
+                        sx={{
+                            // Remove restrições de toque
+                            touchAction: 'auto',
+                            overflow: 'auto',
+                        }}
                     >
                         <Image
                             src={music?.url}
@@ -124,11 +129,13 @@ export default function MusicDetail() {
                             w="100%"
                             h="100%"
                             objectFit="contain"
+                            sx={{
+                                touchAction: 'pinch-zoom',
+                            }}
                         />
                     </Flex>
                 </ModalContent>
             </Modal>
-
         </Flex>
     )
 }

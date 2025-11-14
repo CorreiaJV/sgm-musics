@@ -75,7 +75,7 @@ export default function SidebarDrawer() {
                                     </Text>
                                 </Box>
                             </HStack>
-                            <HStack
+                            {/* <HStack
                                 as={RouterLink}
                                 //to="/suggestions"
                                 onClick={onClose}
@@ -89,7 +89,7 @@ export default function SidebarDrawer() {
                                         Sugira músicas que deveriam ser adiciondas ou melhorias do app
                                     </Text>
                                 </Box>
-                            </HStack>
+                            </HStack> */}
                         </VStack>
                     </DrawerBody>
                 </DrawerContent>

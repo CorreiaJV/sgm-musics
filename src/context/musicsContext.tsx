@@ -17,11 +17,18 @@ export function MusicProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const fetchMusics = async () => {
       const { data, error } = await supabase.from("musics").select("*")
-      if (!error && data) setMusics(data as Music[])
+
+      if (!error && data) {
+        const sorted = [...data].sort((a, b) =>
+          a.title.localeCompare(b.title)
+        )
+        setMusics(sorted)
+      }
       setLoading(false)
     }
     fetchMusics()
   }, [])
+
 
   return (
     <MusicContext.Provider value={{ musics, loading }}>

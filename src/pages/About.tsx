@@ -34,7 +34,7 @@ export default function About() {
                 </Box>
 
                 <Heading as="h1" size="lg" color="white">
-                    SGM-<Text as="span" color="yellow.300">Musics</Text>
+                    Forjados-<Text as="span" color="yellow.300">Musics</Text>
                 </Heading>
             </Flex>
 
@@ -56,11 +56,9 @@ export default function About() {
                 <Divider borderColor="yellow.400" />
 
                 <Text fontSize="md" textAlign="justify">
-                    Este projeto nasceu para facilitar o acesso a músicas, letras e cifras,
-                    do segue-me com uma interface simples e rápida. A ideia é ter um repositório
-                    digital onde qualquer pessoa possa navegar, visualizar e baixar
-                    músicas de forma prática.
+                    O Forjados Musics nasceu para facilitar o acesso às músicas, letras e cifras da igreja, oferecendo uma interface simples, rápida e amigável. A proposta é ser um repositório digital onde qualquer pessoa possa navegar, visualizar e baixar conteúdos musicais de maneira prática e intuitiva.
                 </Text>
+
 
                 <Divider borderColor="yellow.400" />
 
@@ -86,9 +84,9 @@ export default function About() {
                     As músicas aqui presentes foram tiradas dos livros:
                 </Text>
                 <VStack spacing={1} align="center">
-                    <Text fontSize="md" color="yellow.300">• Vigília e Liturgia 2019 - NB</Text>
-                    <Text fontSize="md" color="yellow.300">• Vigília e Liturgia 2024 - NB</Text>
-                    <Text fontSize="md" color="yellow.300">• Canto 2025 - NB</Text>
+                    <Text fontSize="md" color="yellow.300">• Vigília e Liturgia 2019 </Text>
+                    <Text fontSize="md" color="yellow.300">• Vigília e Liturgia 2024 </Text>
+                    <Text fontSize="md" color="yellow.300">• Canto 2025 </Text>
                 </VStack>
             </VStack>
         </Box>

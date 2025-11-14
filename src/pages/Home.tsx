@@ -80,7 +80,7 @@ export default function Home() {
         </Box>
 
         <Heading as="h1" size="lg" color="white">
-          SGM-<Text as="span" color="yellow.300">Musics</Text>
+          Forjados-<Text as="span" color="yellow.300">Musics</Text>
         </Heading>
       </Flex>
 
